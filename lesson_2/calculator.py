@@ -15,14 +15,16 @@ prompt("What's the first number?")
 number1 = input()
 
 while invalid_number(number1):
-    prompt("Hmm... that doesn't look like a valid number. Try again please.")
+    prompt("Hmm... that doesn't look like a valid number. Try again please "
+           "with a number character.")
     number1 = input()
 
 prompt("What's the second number?")
 number2 = input()
 
 while invalid_number(number2):
-    prompt("Hmm... that doesn't look like a valid number. Try again please.")
+    prompt("Hmm... that doesn't look like a valid number. Try again please "
+           "with a number character.")
     number2 = input()
 
 prompt("What operation would you like to perform?\n"
@@ -30,7 +32,8 @@ prompt("What operation would you like to perform?\n"
 operation = input()
 
 while operation not in ["1", "2", "3", "4"]:
-    prompt("You must choose 1, 2, 3, or 4")
+    prompt("You must choose 1, 2, 3, or 4\n"
+           ">>> 1 = Add | 2 = Subtract | 3 = Multiply | 4 = Divide <<<")
     operation = input()
 
 match operation:
