@@ -1,12 +1,10 @@
-def lower_first(word):
-    try:
-        return word[0].lower() + word[1:]
-    except (TypeError, IndexError):
-        return word  # Handle exceptions by returning `word` as-is
-
-print(lower_first("FOO"))  # Output: "fOO"
-print(lower_first(32))     # Output: "32"
-print(lower_first("hELLO"))
-
-lst = ['hi', 'there']
-print(lower_first(lst[2]))
+while True:    
+    print("Would you like to calculate another car payment? (y/n)")
+    answer = input().strip().lower()
+    if answer[0] == 'n':
+        print("Thank you, have a nice day!")
+        break
+    elif answer[0] != 'y':
+        print("Please type y for 'yes' or n for 'no'.")
+    else:
+        break
