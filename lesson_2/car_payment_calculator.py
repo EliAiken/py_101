@@ -41,16 +41,13 @@ while CONTINUE_PROGRAM:
 
         if not invalid_number(loan_amount):
             break
-
-        prompt("Invalid number. Please try again with ONLY "
-               "postive number characters.")
+        else:
+            prompt("Invalid number. Please try again with ONLY "
+                   "postive number characters.")
 
     while True:
         prompt("Is your loan interest-free? (y/n) ")
         no_apr = input().strip().lower()
-        if not no_apr:
-            prompt("Please type 'y' for yes or 'n' for no.")
-            continue
 
         if no_apr not in ['y', 'yes', 'n', 'no']:
             prompt("Please type 'y' for yes or 'n' for no.")
@@ -77,11 +74,13 @@ while CONTINUE_PROGRAM:
         prompt("What is your loan term (in months)? ")
         loan_duration = input()
 
+        if not loan_duration.isdigit():
+            prompt("Invalid number. Please try again with ONLY "
+                   "positive number characters and no decimals.")
+            continue
+
         if not invalid_number(loan_duration):
             break
-
-        prompt("Invalid number. Please try again with ONLY "
-               "positive number characters.")
 
     loan_amount = float(loan_amount)
     APR = float(APR)
@@ -107,9 +106,6 @@ while CONTINUE_PROGRAM:
     while True:
         prompt("Would you like to calculate another car payment? (y/n)")
         answer = input().strip().lower()
-        if not answer:
-            prompt("Please type 'y' for yes or 'n' for no.")
-            continue
 
         if answer not in ['y', 'yes', 'n', 'no']:
             prompt("Please type 'y' for yes or 'n' for no.")
