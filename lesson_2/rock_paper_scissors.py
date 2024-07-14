@@ -1,6 +1,5 @@
 import random
 import os
-import sys
 
 VALID_CHOICES = ["rock", "paper", "scissors", "lizard", "spock"]
 
