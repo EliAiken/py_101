@@ -156,4 +156,4 @@ while True:
         best_of_five()
         keep_playing = play_again()
         if keep_playing is False:
-            sys.exit()
+            break
