@@ -1,41 +1,6 @@
 import random
 import os
 
-def play_rps():
-    while True:
-        os.system('clear')
-        display_scoreboard()
-        print()
-        prompt(f"Pick your move: {", ".join(VALID_CHOICES)}")
-
-        choice = input().strip().lower()
-        if choice in SHORTENED_CHOICES:
-            choice = SHORTENED_CHOICES[choice]
-        else:
-            while choice not in VALID_CHOICES:
-                prompt("That is not a valid choice. Try again")
-                choice = input().strip().lower()
-                choice = SHORTENED_CHOICES.get(choice, choice)
-
-        computer_choice = random.choice(VALID_CHOICES)
-
-        display_choices(choice, computer_choice)
-
-        result = display_winner(choice, computer_choice)
-
-        keep_score(result)
-
-        next_round()
-
-        if score["p_wins"] == 3 or score["c_wins"] == 3:
-            os.system('clear')
-            display_scoreboard()
-            print()
-            best_of_five()
-            keep_playing = play_again()
-            if keep_playing is False:
-                break
-
 VALID_CHOICES = ["rock", "paper", "scissors", "lizard", "spock"]
 
 SHORTENED_CHOICES = {
@@ -127,6 +92,41 @@ def play_again():
 def display_scoreboard():
     print(f"Player Score > {score["p_wins"]} | {score["c_wins"]} "
         f"< Computer Score  -  Ties: {score["Ties"]}")
+
+def play_rps():
+    while True:
+        os.system('clear')
+        display_scoreboard()
+        print()
+        prompt(f"Pick your move: {", ".join(VALID_CHOICES)}")
+
+        choice = input().strip().lower()
+        if choice in SHORTENED_CHOICES:
+            choice = SHORTENED_CHOICES[choice]
+        else:
+            while choice not in VALID_CHOICES:
+                prompt("That is not a valid choice. Try again")
+                choice = input().strip().lower()
+                choice = SHORTENED_CHOICES.get(choice, choice)
+
+        computer_choice = random.choice(VALID_CHOICES)
+
+        display_choices(choice, computer_choice)
+
+        result = display_winner(choice, computer_choice)
+
+        keep_score(result)
+
+        next_round()
+
+        if score["p_wins"] == 3 or score["c_wins"] == 3:
+            os.system('clear')
+            display_scoreboard()
+            print()
+            best_of_five()
+            keep_playing = play_again()
+            if keep_playing is False:
+                break
 
 prompt("Welcome to Eli's Rock, Paper, Scissors, Lizard, Spock "
     "Best-Out-of-Five Tournament Game!")
