@@ -2,12 +2,6 @@ import random
 import os
 
 def play_rps():
-    global score
-    score = {
-    "p_wins": 0,
-    "c_wins": 0,
-    "Ties": 0
-    }
     while True:
         os.system('clear')
         display_scoreboard()
@@ -27,10 +21,9 @@ def play_rps():
 
         display_choices(choice, computer_choice)
 
-        global result
         result = display_winner(choice, computer_choice)
 
-        keep_score()
+        keep_score(result)
 
         next_round()
 
@@ -61,6 +54,12 @@ WINNING_COMBOS = {
     'spock':    ['rock',     'scissors'],
 }
 
+score = {
+    "p_wins": 0,
+    "c_wins": 0,
+    "Ties": 0
+    }
+
 def prompt(message):
     print(f">>> {message} <<<")
 
@@ -86,7 +85,7 @@ def next_round():
         prompt("Press Enter to play the Next Round")
         input()
 
-def keep_score():
+def keep_score(result):
     if result == "p_wins":
         score["p_wins"] += 1
         print(f"Player Score > {score["p_wins"]} | {score["c_wins"]} "
@@ -129,15 +128,14 @@ def display_scoreboard():
     print(f"Player Score > {score["p_wins"]} | {score["c_wins"]} "
         f"< Computer Score  -  Ties: {score["Ties"]}")
 
-
 prompt("Welcome to Eli's Rock, Paper, Scissors, Lizard, Spock "
     "Best-Out-of-Five Tournament Game!")
 print("""
     _______           _______                     ______
 ---'   ____)      ---'   ____)____           ---'   ____)____
-    (_____)               ______)                    ______)
-    (_____)               _______)                __________)
-    (____)               _______)                (____)
+      (_____)               ______)                    ______)
+      (_____)               _______)                __________)
+      (____)               _______)                (____)
 ---.__(___)        ---.__________)            ---.__(___)
 
     """)
