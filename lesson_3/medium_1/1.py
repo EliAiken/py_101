@@ -11,5 +11,15 @@
 # ---The Flintstones Rock!
 #     ...
 
-for i in range(11):
-    print("-" + "The Flintstones Rock!")
+my_list = ["-", "The Flintstones Rock!"]
+
+join_my_list = ''.join(my_list)
+print(join_my_list)
+for i in range(1, 10):
+    my_list.insert(0, "-")
+    result = ''.join(my_list)
+    print(result)
+
+# LS ANSWER:
+for i in range(1, 11):
+    print(f'{"-" * i}The Flintstones Rock!')
